@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Admin Dashboard</h2>
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+<p>Welcome, Admin!</p>
+<div class="row mt-4">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body text-center">
+        <h4>Total Employees</h4>
+        <p>{{ employers }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body text-center">
+        <h4>Total Jobs</h4>
+        <p>{{ jobs }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body text-center">
+        <h4>Total Jobseekers</h4>
+        <p>{{ jobseekers }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
